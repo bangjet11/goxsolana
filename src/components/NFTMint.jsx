@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { metaplex } from "../utils/metaplex";
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
+import { generateSigner, keypairIdentity } from "@metaplex-foundation/umi";
+import { createNft } from "@metaplex-foundation/mpl-token-metadata";
 
 export default function NFTMint() {
   const [status, setStatus] = useState("");
@@ -32,3 +33,4 @@ export default function NFTMint() {
     </div>
   );
 }
+
