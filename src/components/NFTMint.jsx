@@ -1,36 +1,24 @@
-import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
-import { generateSigner, keypairIdentity } from "@metaplex-foundation/umi";
-import { createNft } from "@metaplex-foundation/mpl-token-metadata";
+import React from "react";
+import { mintNFT } from "../utils/metaplex";
 
 export default function NFTMint() {
-  const [status, setStatus] = useState("");
-
-  const mintNFT = async () => {
+  const handleMint = async () => {
     try {
-      setStatus("Minting...");
-      // Contoh mint NFT dummy (replace dengan metadata asli)
-      const { nft } = await metaplex.nfts().create({
-        uri: "https://arweave.net/example-metadata.json",
-        name: "GoxSolana NFT",
-        sellerFeeBasisPoints: 500, // 5% royalty
-      });
-      setStatus(`Minted NFT: ${nft.address.toBase58()}`);
+      const pubkey = await mintNFT();
+      alert("NFT minted! PublicKey: " + pubkey);
     } catch (err) {
-      console.error(err);
-      setStatus("Mint failed");
+      alert("Mint failed: " + err.message);
     }
   };
 
   return (
-    <div className="text-center py-10">
-      <h3 className="text-2xl font-bold">Mint NFT</h3>
-      <button 
-        onClick={mintNFT} 
-        className="bg-green-600 px-4 py-2 rounded mt-4">
+    <div className="p-4">
+      <button
+        onClick={handleMint}
+        className="bg-blue-600 text-white px-4 py-2 rounded"
+      >
         Mint NFT
       </button>
-      <p className="mt-2">{status}</p>
     </div>
   );
 }
-
