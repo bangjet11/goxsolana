@@ -1,4 +1,3 @@
-import { Metaplex } from "@metaplex-foundation/js";
-import { connection } from "./solana";
-
-export const metaplex = Metaplex.make(connection);
+import { createUmi } from "@metaplex-foundation/umi-bundle-defaults";
+import { createNft } from "@metaplex-foundation/mpl-token-metadata";
+import { Aptos, AptosConfig } from "@aptos-labs/ts-sdk";
