@@ -1,24 +1,10 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import WalletConnect from "./components/WalletConnect";
-import NFTMint from "./components/NFTMint";
-import Staking from "./components/Staking";
-import Airdrop from "./components/Airdrop";
-import Marketplace from "./components/Marketplace";
+import NFTMint from "./NFTMint";
 
-function App() {
+export default function App() {
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
-      <Navbar />
-      <Hero />
-      <WalletConnect />
+    <div className="p-6">
+      <h1 className="text-2xl font-bold text-blue-600">GoxSolana</h1>
       <NFTMint />
-      <Staking />
-      <Airdrop />
-      <Marketplace />
     </div>
   );
 }
-
-export default App;
